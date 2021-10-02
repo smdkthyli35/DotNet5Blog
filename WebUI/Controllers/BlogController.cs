@@ -18,7 +18,7 @@ namespace WebUI.Controllers
 
         public IActionResult Index()
         {
-            var result = _blogService.GetAll();
+            var result = _blogService.GetBlogListWithCategory();
             return View(result);
         }
     }
