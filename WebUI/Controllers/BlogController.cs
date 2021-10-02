@@ -21,5 +21,11 @@ namespace WebUI.Controllers
             var result = _blogService.GetBlogListWithCategory();
             return View(result);
         }
+
+        public IActionResult BlogReadAll(int id)
+        {
+            var values = _blogService.GetBlogById(id);
+            return View(values);
+        }
     }
 }

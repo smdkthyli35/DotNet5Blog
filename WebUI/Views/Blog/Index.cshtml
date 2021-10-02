@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="main-content-w3layouts-agileits">
+<section style="margin-top:-50px" class="main-content-w3layouts-agileits">
     <div class="container">
         <h3 class="tittle">Bloglar</h3>
         <div class="inner-sec">
@@ -15,14 +15,14 @@
                     @foreach (var blog in Model)
                     {
                         <div class="col-lg-4 card mb-3">
-                            <a href="single.html">
+                            <a href="/Blog/BlogReadAll/@blog.BlogId">
                                 <img src="@blog.BlogImage" class="card-img-top img-fluid" alt="">
                             </a>
                             <div class="card-body">
                                 <ul class="blog-icons my-4">
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-calendar-alt"></i> @blog.BlogCreateDate
+                                            <i class="far fa-calendar-alt"></i> @Convert.ToDateTime(blog.BlogCreateDate).ToString("dd/MMM/yyyy")
                                         </a>
                                     </li>
                                     <li class="mx-2">
@@ -38,10 +38,10 @@
 
                                 </ul>
                                 <h5 class="card-title">
-                                    <a href="single.html">@blog.BlogTitle</a>
+                                    <a href="/Blog/BlogReadAll/@blog.BlogId">@blog.BlogTitle</a>
                                 </h5>
-                                <p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt.. </p>
-                                <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                                <p class="card-text mb-3">@blog.BlogContent.Substring(0,blog.BlogContent.Substring(0,130).LastIndexOf(" "))... </p>
+                                <a href="/Blog/BlogReadAll/@blog.BlogId" class="btn btn-primary read-m">Devamını oku</a>
                             </div>
                         </div> 
                     }
