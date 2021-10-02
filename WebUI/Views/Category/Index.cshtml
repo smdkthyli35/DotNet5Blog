@@ -1,0 +1,39 @@
+﻿@using Entities.Concrete
+@model List<Category>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table>
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Ad</th>
+                <th>Açıklama</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.CategoryDescription</td>
+                    <td>@category.CategoryStatus</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
