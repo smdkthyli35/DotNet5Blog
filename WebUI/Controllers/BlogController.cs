@@ -24,6 +24,7 @@ namespace WebUI.Controllers
 
         public IActionResult BlogReadAll(int id)
         {
+            ViewBag.i = id;
             var values = _blogService.GetBlogById(id);
             return View(values);
         }
