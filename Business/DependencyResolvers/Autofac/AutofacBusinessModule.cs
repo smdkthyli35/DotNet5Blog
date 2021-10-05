@@ -23,6 +23,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
             builder.RegisterType<EfCommentDal>().As<ICommentDal>().SingleInstance();
+
+            builder.RegisterType<WriterManager>().As<IWriterService>().SingleInstance();
+            builder.RegisterType<EfWriterDal>().As<IWriterDal>().SingleInstance();
         }
     }
 }
