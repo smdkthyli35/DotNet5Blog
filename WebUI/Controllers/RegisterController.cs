@@ -24,10 +24,24 @@ namespace WebUI.Controllers
         [HttpPost]
         public IActionResult Index(Writer writer)
         {
-            writer.WriterStatus = true;
-            writer.WriterAbout = "Deneme Test";
-            _writerService.Add(writer);
-            return RedirectToAction("Index", "Blog");
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult validationResult = writerValidator.Validate(writer);
+            if (validationResult.IsValid)
+            {
+                writer.WriterStatus = true;
+                writer.WriterAbout = "Deneme Test";
+                _writerService.Add(writer);
+                return RedirectToAction("Index", "Blog");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+            
         }
     }
 }

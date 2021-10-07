@@ -28,15 +28,6 @@ namespace WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            //services.AddSingleton<ICategoryService, CategoryManager>();
-            //services.AddSingleton<ICategoryDal, EfCategoryDal>();
-
-            //services.AddSingleton<IBlogService, BlogManager>();
-            //services.AddSingleton<IBlogDal, EfBlogDal>();
-
-            //services.AddSingleton<ICommentService, CommentManager>();
-            //services.AddSingleton<ICommentDal, EfCommentDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +43,7 @@ namespace WebUI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

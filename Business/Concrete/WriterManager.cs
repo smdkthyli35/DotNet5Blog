@@ -4,6 +4,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Business.Concrete
             _writerDal = writerDal;
         }
 
-        [ValidationAspect(typeof(WriterValidator))]
+        //[ValidationAspect(typeof(WriterValidator))]
         public void Add(Writer writer)
         {
             //ValidationTool.Validate(new WriterValidator(), writer);
@@ -43,7 +44,7 @@ namespace Business.Concrete
             return _writerDal.Get(w => w.WriterId == id);
         }
 
-       // [ValidationAspect(typeof(WriterValidator))]
+        // [ValidationAspect(typeof(WriterValidator))]
         public void Update(Writer writer)
         {
             _writerDal.Update(writer);
