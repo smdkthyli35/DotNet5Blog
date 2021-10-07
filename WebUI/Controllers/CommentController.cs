@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,18 @@ namespace WebUI.Controllers
         {
             return View();
         }
+        [HttpGet]
         public PartialViewResult PartialAddComment()
         {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult PartialAddComment(Comment comment)
+        {
+            comment.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            comment.CommentStatus = true;
+            comment.BlogId = 2;
+            _commentService.Add(comment);
             return PartialView();
         }
         public PartialViewResult CommentListByBlog(int id)
