@@ -30,6 +30,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<WriterManager>().As<IWriterService>().SingleInstance();
             builder.RegisterType<EfWriterDal>().As<IWriterDal>().SingleInstance();
 
+            builder.RegisterType<NewsletterManager>().As<INewsletterService>().SingleInstance();
+            builder.RegisterType<EfNewsletterDal>().As<INewsletterDal>().SingleInstance();
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
