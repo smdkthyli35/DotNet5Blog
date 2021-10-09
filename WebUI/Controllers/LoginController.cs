@@ -9,7 +9,7 @@ namespace WebUI.Controllers
 {
     public class LoginController : Controller
     {
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             return View();
