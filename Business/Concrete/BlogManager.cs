@@ -32,6 +32,11 @@ namespace Business.Concrete
         {
             return _blogDal.GetList();
         }
+         
+        public List<Blog> GetLast3Blog()
+        {
+            return _blogDal.GetList().Take(3).ToList();
+        }
 
         public List<Blog> GetBlogById(int id)
         {

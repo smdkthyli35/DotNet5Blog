@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebUI.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         IBlogService _blogService;
@@ -28,5 +30,7 @@ namespace WebUI.Controllers
             var values = _blogService.GetBlogById(id);
             return View(values);
         }
+
+       
     }
 }
