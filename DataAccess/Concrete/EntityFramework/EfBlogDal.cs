@@ -15,9 +15,17 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<Blog> GetListWithCategory()
         {
-            using(var context = new Context())
+            using (var context = new Context())
             {
-                return context.Blogs.Include(b => b.Category).ToList(); 
+                return context.Blogs.Include(b => b.Category).ToList();
+            }
+        }
+
+        public List<Blog> GetListWithCategoryByWriter(int id)
+        {
+            using (var context = new Context())
+            {
+                return context.Blogs.Include(b => b.Category).Where(b => b.WriterId == id).ToList();
             }
         }
     }
