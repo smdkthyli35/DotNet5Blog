@@ -1,0 +1,41 @@
+﻿@model Entities.Concrete.Blog
+
+@{
+    ViewData["Title"] = "EditBlog";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Blog Düzenle</h1>
+<br />
+
+<form asp-action="EditBlog" asp-controller="Blog" method="post">
+
+    @Html.HiddenFor(model => model.BlogId, new { @class = "form-control" })
+    <div class="form-group mb-3">
+        <label>Blog Başlığı</label>
+        @Html.TextBoxFor(model => model.BlogTitle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BlogTitle, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group mb-3">
+        <label>Blog Resmi</label>
+        @Html.TextBoxFor(model => model.BlogImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BlogImage, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group mb-3">
+        <label>Blog Küçük Resmi</label>
+        @Html.TextBoxFor(model => model.BlogThumbnailImage, new { @class = "form-control" })
+    </div>
+    <div class="form-group mb-3">
+        <label>Kategori</label>
+        @Html.DropDownListFor(model => model.CategoryId, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    </div>
+    <div class="form-group mb-3">
+        <label>Blog İçeriği</label>
+        @Html.TextAreaFor(model => model.BlogContent, 10, 3, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BlogContent, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</form>
+
